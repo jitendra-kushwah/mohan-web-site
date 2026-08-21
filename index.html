@@ -2,11 +2,14 @@
 <html lang="hi" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>JobPulse 🚀 | Mobile Responsive Sarkari Naukri & Tech Jobs Portal 2025</title>
-  <meta name="description"
-    content="Latest Government & Private Job Notifications with Direct Official Application Live Links. Mobile Responsive Job Portal.">
+  <!-- PWA & Mobile App Support -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JobPulse 🚀">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -185,7 +188,8 @@
 
     .theme-toggle-btn,
     .saved-btn,
-    .post-job-btn {
+    .post-job-btn,
+    .install-app-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -195,6 +199,18 @@
       font-weight: 600;
       transition: var(--transition);
     }
+
+    .install-app-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+
+    .install-app-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+    }
+
 
     .theme-toggle-btn {
       background: var(--bg-surface);
@@ -1025,29 +1041,108 @@
       }
     }
 
-    /* Footer */
+    /* Enhanced Modern Footer */
     footer {
       background: var(--bg-surface);
       border-top: 1px solid var(--border-color);
-      padding: 24px 16px;
-      margin-top: auto;
-      text-align: center;
-      font-size: 0.825rem;
+      padding: 40px 16px 84px;
+      margin-top: 40px;
+      font-size: 0.85rem;
       color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    @media (min-width: 641px) {
+      footer {
+        padding: 50px 24px 34px;
+      }
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .footer-col-title::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: var(--radius-full);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(3px);
     }
 
     .footer-social-bar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 8px;
+      margin-top: 8px;
       flex-wrap: wrap;
     }
 
     .social-btn {
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       border-radius: var(--radius-full);
       background: var(--bg-main);
       border: 1px solid var(--border-color);
@@ -1055,7 +1150,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
       text-decoration: none;
@@ -1068,19 +1163,14 @@
 
     .social-btn.call-btn {
       width: auto;
-      padding: 0 18px;
+      padding: 0 16px;
       gap: 8px;
       background: linear-gradient(135deg, #16a34a, #15803d);
       color: white;
       border: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
-    }
-
-    .social-btn.call-btn:hover {
-      background: linear-gradient(135deg, #15803d, #166534);
-      color: white;
     }
 
     .social-btn.whatsapp-btn:hover {
@@ -1119,6 +1209,32 @@
       border-color: #000000;
     }
 
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary);
+    }
+
+
     .call-nav-btn {
       display: inline-flex;
       align-items: center;
@@ -1148,11 +1264,17 @@
     <div class="navbar-content">
       <a href="#" class="brand-logo" onclick="resetFilters()">
         <span>JobPulse</span>
-        <span class="brand-badge">LIVE 2026</span>
+        <span class="brand-badge">LIVE 2025</span>
       </a>
 
       <div class="nav-actions">
-        <a href="tel:+9111390994" class="call-nav-btn" title="Call Helpline Support">
+        <button class="install-app-btn" id="installAppBtn" onclick="triggerInstallApp()"
+          title="Install JobPulse App on Mobile">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>Install App</span>
+        </button>
+
+        <a href="tel:+9118001234567" class="call-nav-btn" title="Call Helpline Support">
           <i class="fa-solid fa-phone"></i>
           <span class="hide-mobile">Call Support</span>
         </a>
@@ -1189,15 +1311,17 @@
       <i class="fa-solid fa-code"></i>
       <span>Tech Jobs</span>
     </button>
-    <button class="mobile-nav-item" id="mnavSaved" onclick="filterSavedJobs(); setMobileNavActive(this)">
-      <i class="fa-solid fa-bookmark"></i>
-      <span>Saved</span>
+    <button class="mobile-nav-item" id="mnavInstall" onclick="triggerInstallApp()"
+      style="color: #10b981; font-weight: 700;">
+      <i class="fa-solid fa-download"></i>
+      <span>Install</span>
     </button>
     <button class="mobile-nav-item" id="mnavAlerts" onclick="openPostModal()">
       <i class="fa-solid fa-bell"></i>
       <span>Alerts</span>
     </button>
   </div>
+
 
   <!-- Main Container -->
   <main class="app-container">
@@ -1352,439 +1476,564 @@
         </button>
       </div>
     </div>
-  </div>
+    <!-- iOS Install Instructions Modal Overlay -->
+    <div class="modal-overlay" id="iosInstallModal">
+      <div class="modal-card" style="max-width: 440px;">
+        <div class="drag-handle"></div>
+        <div class="modal-header">
+          <h2 class="job-title" style="font-size: 1.15rem;"><i class="fa-solid fa-mobile-screen-button"
+              style="color: var(--primary);"></i> Install JobPulse App</h2>
+          <button class="modal-close-btn" onclick="closeModal('iosInstallModal')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <div
+              style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary), #a855f7); color: white; border-radius: var(--radius-md); display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 8px;">
+              🚀</div>
+            <h3 style="font-size: 1.05rem; font-weight: 700;">Install on iPhone / iPad</h3>
+            <p style="color: var(--text-muted); font-size: 0.825rem;">Follow these 3 easy steps to add JobPulse to your
+              Home Screen:</p>
+          </div>
 
-  <!-- Toast Alert Container -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-social-bar">
-      <a href="tel:9111390994" class="social-btn call-btn" title="Call Helpline Support">
-        <i class="fa-solid fa-phone"></i>
-        <span>Call Support</span>
-      </a>
-      <a href="https://wa.me/9111390994" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn"
-        title="WhatsApp Channel">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-      <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn"
-        title="Telegram Group">
-        <i class="fa-brands fa-telegram"></i>
-      </a>
-      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube-btn"
-        title="YouTube Channel">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn"
-        title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="http://instagram.com/_mohan_mogiya_2001?igsh=MWFxdnl5YzM0NXVvNg%3D%3D" target="_blank"
-        rel="noopener noreferrer" class="social-btn instagram-btn" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn x-btn" title="X (Twitter)">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
+          <ol
+            style="display: flex; flex-direction: column; gap: 12px; font-size: 0.85rem; padding-left: 10px; color: var(--text-main); list-style: none;">
+            <li
+              style="display: flex; align-items: center; gap: 10px; background: var(--bg-main); padding: 10px 12px; border-radius: var(--radius-md);">
+              <span
+                style="background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem;">1</span>
+              <span>Tap the <strong>Share button</strong> <i class="fa-solid fa-share-nodes"
+                  style="color: var(--primary);"></i> in Safari toolbar.</span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 10px; background: var(--bg-main); padding: 10px 12px; border-radius: var(--radius-md);">
+              <span
+                style="background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem;">2</span>
+              <span>Scroll down & tap <strong>'Add to Home Screen'</strong> <i class="fa-regular fa-square-plus"
+                  style="color: var(--primary);"></i>.</span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 10px; background: var(--bg-main); padding: 10px 12px; border-radius: var(--radius-md);">
+              <span
+                style="background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem;">3</span>
+              <span>Tap <strong>'Add'</strong> in the top right corner! 🎉</span>
+            </li>
+          </ol>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeModal('iosInstallModal')"
+            style="background: var(--primary); color: white; border: none; width: 100%;">
+            Got it! 👍
+          </button>
+        </div>
+      </div>
     </div>
-    <p>© 2026 JobPulse Portal • Mobile Responsive & Direct Application Links.</p>
-  </footer>
 
-  <!-- Embedded JavaScript Application Logic -->
-  <script>
-    /* ==========================================================================
-       JOBS DATASET (22+ Real Vacancies with Official Live Application Links)
-       ========================================================================== */
-    const JOBS_DATA = [
-      {
-        id: 1,
-        title: "SSC CGL 2024 / 2025 Recruitment",
-        org: "Staff Selection Commission (SSC)",
-        category: "central",
-        jobType: "Govt",
-        badge: "URGENT",
-        posts: "17,727 Posts",
-        qual: "Any Bachelor's Degree",
-        location: "All India",
-        salary: "₹25,500 – ₹81,100 /mo",
-        lastDate: "28 Feb 2025",
-        logoClass: "govt",
-        logoIcon: "fa-building-columns",
-        url: "https://ssc.gov.in/",
-        desc: "Group B & C officer posts across Ministries, Central Secretariat Service, Income Tax, Excise Inspector, Assistant Section Officer, and Auditor.",
-        eligibility: ["Age limit: 18 - 32 years (Relaxation applicable)", "Graduation in any stream from recognized university", "Selection via Tier 1 & Tier 2 Computer Based Tests"]
-      },
-      {
-        id: 2,
-        title: "IBPS PO / Management Trainee (CRP PO/MT-XIV)",
-        org: "Institute of Banking Personnel Selection",
-        category: "banking",
-        jobType: "Govt",
-        badge: "HOT",
-        posts: "4,455 Posts",
-        qual: "Graduation in any discipline",
-        location: "All India",
-        salary: "₹52,000 – ₹55,000 /mo",
-        lastDate: "15 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-piggy-bank",
-        url: "https://www.ibps.in/",
-        desc: "Probationary Officer (PO) openings in Public Sector Banks like Punjab National Bank, Canara Bank, Bank of Baroda, Indian Bank, etc.",
-        eligibility: ["Degree in any discipline from recognized University", "Computer operating knowledge required", "Selection through Prelims, Mains & Interview"]
-      },
-      {
-        id: 3,
-        title: "RRB NTPC Graduate & Undergraduate Vacancies",
-        org: "Railway Recruitment Boards (RRB)",
-        category: "railway",
-        jobType: "Govt",
-        badge: "NEW",
-        posts: "11,558 Posts",
-        qual: "12th Pass / Any Degree",
-        location: "All India",
-        salary: "₹19,900 – ₹35,400 /mo",
-        lastDate: "10 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-train",
-        url: "https://indianrailways.gov.in/",
-        desc: "Non-Technical Popular Categories including Station Master, Goods Guard, Senior Clerk, Junior Clerk, Typist, and Commercial Apprentice.",
-        eligibility: ["12th or Graduate depending on post", "Age relaxation as per Govt rules", "Selection: CBT 1, CBT 2, Skill Test & Document Verification"]
-      },
-      {
-        id: 4,
-        title: "UPSC Civil Services Examination (CSE) 2025",
-        org: "Union Public Service Commission",
-        category: "central",
-        jobType: "Govt",
-        badge: "HOT",
-        posts: "1,056 Posts",
-        qual: "Bachelor's Degree in any discipline",
-        location: "All India",
-        salary: "Level 10 (Pay Matrix ₹56,100+)",
-        lastDate: "05 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-landmark",
-        url: "https://upsc.gov.in/",
-        desc: "IAS, IPS, IFS, IRS, and Central Group A & B Services recruitment notification for prestigious administrative positions in India.",
-        eligibility: ["Age 21-32 years", "Graduate in any subject", "Selection: Preliminary, Mains Written & Personality Interview"]
-      },
-      {
-        id: 5,
-        title: "Software Engineer - Full Stack (L4)",
-        org: "Google India",
-        category: "tech",
-        jobType: "Private",
-        badge: "HOT",
-        posts: "Multiple Positions",
-        qual: "B.Tech / M.Tech in CS or related field",
-        location: "Bangalore",
-        salary: "₹18,00,000 – ₹32,00,000 /yr",
-        lastDate: "Rolling Hiring",
-        logoClass: "tech",
-        logoIcon: "fa-google",
-        url: "https://careers.google.com/",
-        desc: "Build large-scale frontend and backend cloud services, distributed infrastructure, and high-performance search AI features.",
-        eligibility: ["Strong knowledge of Data Structures & Algorithms", "Proficiency in React, Java, C++, or Python", "System Design & Cloud platform knowledge"]
-      },
-      {
-        id: 6,
-        title: "SBI Probationary Officer (PO) Officer Cadre",
-        org: "State Bank of India",
-        category: "banking",
-        jobType: "Govt",
-        badge: "NEW",
-        posts: "2,000 Posts",
-        qual: "Graduation (Any Discipline)",
-        location: "All India",
-        salary: "₹54,000 /mo + Allowances",
-        lastDate: "20 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-building-columns",
-        url: "https://sbi.co.in/web/careers",
-        desc: "Join India's largest bank as Probationary Officer with rapid career progression to managerial and executive leadership roles.",
-        eligibility: ["Graduation in any stream", "Final year students eligible conditionally", "Phase 1 Prelims, Phase 2 Mains, Phase 3 GD & Interview"]
-      },
-      {
-        id: 7,
-        title: "ISRO Scientist / Engineer 'SC' (ECE, CSE, Mech)",
-        org: "Indian Space Research Organisation",
-        category: "central",
-        jobType: "Govt",
-        badge: "NEW",
-        posts: "320 Posts",
-        qual: "B.E / B.Tech (First Class 65%)",
-        location: "All India",
-        salary: "₹56,100 + DA & HRA",
-        lastDate: "12 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-rocket",
-        url: "https://www.isro.gov.in/Careers.html",
-        desc: "Recruitment for Satellite Systems, Propulsion, Space Robotics, Navigation & Cyber Security division at ISRO centres.",
-        eligibility: ["BE/B.Tech with minimum 65% aggregate", "Valid GATE Score or ISRO Written Test Rank", "Age limit up to 28 years"]
-      },
-      {
-        id: 8,
-        title: "Frontend React & Next.js Developer",
-        org: "Microsoft Corporation",
-        category: "tech",
-        jobType: "Private",
-        badge: "NEW",
-        posts: "15 Openings",
-        qual: "B.E / B.Tech / BCA / MCA",
-        location: "Remote",
-        salary: "₹16,00,000 – ₹28,00,000 /yr",
-        lastDate: "Rolling Hiring",
-        logoClass: "tech",
-        logoIcon: "fa-microsoft",
-        url: "https://careers.microsoft.com/",
-        desc: "Develop scalable web user interfaces for Microsoft 365, Azure Cloud Portal, and AI Copilot web applications.",
-        eligibility: ["2+ years experience in React, TypeScript, and Modern CSS", "Experience with state management and Web Performance optimization", "Remote / Hybrid working flexibility"]
-      },
-      {
-        id: 9,
-        title: "UP Police Constable Recruitment 2024-25",
-        org: "UP Police Recruitment Board",
-        category: "defence",
-        jobType: "Govt",
-        badge: "URGENT",
-        posts: "60,244 Posts",
-        qual: "10+2 (Intermediate) Pass",
-        location: "Uttar Pradesh",
-        salary: "₹21,700 – ₹69,100 /mo",
-        lastDate: "01 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-shield-halved",
-        url: "https://uppbpb.gov.in/",
-        desc: "Massive recruitment drive for Constables in Civil Police, PAC, and Fireman departments across Uttar Pradesh.",
-        eligibility: ["12th pass from recognized board", "Physical Standard Test (PST) & Physical Efficiency Test (PET)", "Written exam in OMR offline mode"]
-      },
-      {
-        id: 10,
-        title: "Senior Full Stack React/Node Engineer",
-        org: "Remote OK Worldwide",
-        category: "remote",
-        jobType: "Private",
-        badge: "HOT",
-        posts: "Global Remote",
-        qual: "Self-Taught or Computer Science Degree",
-        location: "Remote",
-        salary: "$65,000 – $95,000 /yr",
-        lastDate: "Active Now",
-        logoClass: "tech",
-        logoIcon: "fa-globe",
-        url: "https://remoteok.com/",
-        desc: "Work 100% remotely for international fintech & AI startups. Build modern web apps using JavaScript/TypeScript stack.",
-        eligibility: ["Proficiency in React.js, Node.js, GraphQL, PostgreSQL", "Async communication skills in English", "Work from anywhere in the world"]
-      },
-      {
-        id: 11,
-        title: "TCS NQT National Qualifier Test (Freshers 2025)",
-        org: "Tata Consultancy Services (TCS)",
-        category: "freshers",
-        jobType: "Private",
-        badge: "NEW",
-        posts: "Mass Hiring",
-        qual: "B.E/B.Tech/M.Tech/BCA/B.Sc",
-        location: "All India",
-        salary: "₹3,36,000 – ₹7,00,000 /yr",
-        lastDate: "22 Mar 2025",
-        logoClass: "tech",
-        logoIcon: "fa-laptop-code",
-        url: "https://www.tcs.com/careers",
-        desc: "TCS Ninja, Digital & Prime recruitment for 2024 and 2025 graduating batches across pan-India office locations.",
-        eligibility: ["2024 & 2025 Batch Passouts", "Minimum 60% in 10th, 12th, and Diploma/Graduation", "Core coding test & aptitude evaluation"]
-      },
-      {
-        id: 12,
-        title: "Indian Air Force AFCAT 01/2025 Entry",
-        org: "Indian Air Force (IAF)",
-        category: "defence",
-        jobType: "Govt",
-        badge: "HOT",
-        posts: "317 Posts",
-        qual: "Graduation / B.Tech",
-        location: "All India",
-        salary: "₹56,100 – ₹1,77,500 /mo",
-        lastDate: "18 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-jet-fighter",
-        url: "https://afcat.cdac.in/AFCAT/",
-        desc: "Commissioned Officer entry in Flying Branch and Ground Duty (Technical & Non-Technical) Branches.",
-        eligibility: ["Age: 20-24 yrs for Flying Branch; 20-26 yrs for Ground Duty", "Physics & Math at 10+2 level mandatory for Flying", "AFCAT Online Exam & AFSB Interview"]
-      },
-      {
-        id: 13,
-        title: "India Post Gramin Dak Sevak (GDS Cycle 6)",
-        org: "Department of Posts",
-        category: "central",
-        jobType: "Govt",
-        badge: "NEW",
-        posts: "44,228 Posts",
-        qual: "10th Pass (Matriculation)",
-        location: "All India",
-        salary: "₹12,000 – ₹29,380 /mo",
-        lastDate: "25 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-envelope",
-        url: "https://indiapostgdsonline.gov.in/",
-        desc: "Branch Postmaster (BPM) and Assistant Branch Postmaster (ABPM) direct recruitment based on 10th marks merit list.",
-        eligibility: ["10th Standard pass with Mathematics and English", "No written exam! Selection purely on 10th marks merit", "Knowledge of local language & cycling mandatory"]
-      },
-      {
-        id: 14,
-        title: "SDE-1 (Software Development Engineer)",
-        org: "Amazon India",
-        category: "tech",
-        jobType: "Private",
-        badge: "HOT",
-        posts: "Gurgaon / Bangalore",
-        qual: "B.Tech in CSE/IT/ECE",
-        location: "Delhi/NCR",
-        salary: "₹16,00,000 – ₹26,00,000 /yr",
-        lastDate: "Open Until Filled",
-        logoClass: "tech",
-        logoIcon: "fa-amazon",
-        url: "https://www.amazon.jobs/",
-        desc: "Build highly responsive ecommerce checkout, Logistics APIs, and AWS Cloud microservices with microsecond latencies.",
-        eligibility: ["Solid CS fundamentals, OOPs, Data Structures", "Experience writing scalable clean Java/C++/Python code", "Understanding of Distributed Storage & AWS Services"]
-      },
-      {
-        id: 15,
-        title: "DRDO CEPTAM Senior Technical Assistant (STA-B)",
-        org: "Defence Research & Dev Organisation",
-        category: "defence",
-        jobType: "Govt",
-        badge: "NEW",
-        posts: "1,901 Posts",
-        qual: "Diploma / B.Sc / B.Tech",
-        location: "All India",
-        salary: "₹35,400 – ₹1,12,400 /mo",
-        lastDate: "30 Mar 2025",
-        logoClass: "govt",
-        logoIcon: "fa-user-shield",
-        url: "https://www.drdo.gov.in/careers",
-        desc: "Research and development assistant vacancies in Missile Systems, Aeronautics, Electronics, and Radar Tech labs.",
-        eligibility: ["B.Sc / Diploma in Engineering discipline", "Age limit: 18 to 28 years", "Tier-I Screening CBT & Tier-II Selection Test"]
-      },
-      {
-        id: 16,
-        title: "Infosys Specialist Programmer & System Engineer",
-        org: "Infosys Limited",
-        category: "freshers",
-        jobType: "Private",
-        badge: "NEW",
-        posts: "Pan-India Hiring",
-        qual: "BE / B.Tech / ME / M.Tech / MCA",
-        location: "Bangalore",
-        salary: "₹4,00,000 – ₹9,50,000 /yr",
-        lastDate: "14 Mar 2025",
-        logoClass: "tech",
-        logoIcon: "fa-code-branch",
-        url: "https://www.infosys.com/careers.html",
-        desc: "Specialist Programmer role focusing on Cloud native development, AI models integration, and Enterprise full-stack architecture.",
-        eligibility: ["Graduates from 2024 & 2025 passout batch", "Strong competitive programming skills", "Selection via HackWithInfy & Online Assessment"]
-      },
-      {
-        id: 17,
-        title: "RBI Grade B Officer Recruitment 2025",
-        org: "Reserve Bank of India",
-        category: "banking",
-        jobType: "Govt",
-        badge: "HOT",
-        posts: "241 Posts",
-        qual: "Graduation (Minimum 60% Marks)",
-        location: "All India",
-        salary: "₹1,08,000 /mo Gross",
-        lastDate: "27 Feb 2025",
-        logoClass: "govt",
-        logoIcon: "fa-coins",
-        url: "https://www.rbi.org.in/",
-        desc: "Officer Grade 'B' (General / DEPR / DSIM) positions at India's central banking institution with supreme perks and prestige.",
-        eligibility: ["Graduation with minimum 60% marks (50% for SC/ST)", "Age: 21 to 30 years", "Phase 1 Online CBT, Phase 2 Written Exam & Interview"]
-      },
-      {
-        id: 18,
-        title: "UI/UX Product Designer",
-        org: "LinkedIn Jobs India",
-        category: "tech",
-        jobType: "Private",
-        badge: "NEW",
-        posts: "Multiple Roles",
-        qual: "Design Degree / Portfolio",
-        location: "Remote",
-        salary: "₹12,00,000 – ₹20,00,000 /yr",
-        lastDate: "Active Hiring",
-        logoClass: "tech",
-        logoIcon: "fa-linkedin",
-        url: "https://www.linkedin.com/jobs/",
-        desc: "Design intuitive user experiences, wireframes, component libraries, and interactive prototypes for SaaS platforms.",
-        eligibility: ["Figma expertise & design system experience", "Strong portfolio demonstrating UX problem solving", "Understanding of HTML/CSS responsive constraints"]
-      }
-    ];
+    <!-- Toast Alert Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
-    /* ==========================================================================
-       APP STATE MANAGEMENT
-       ========================================================================== */
-    let currentCategory = 'all';
-    let currentJobType = 'all';
-    let searchQuery = '';
-    let selectedLocation = 'all';
-    let showingSavedOnly = false;
-    let savedJobIds = JSON.parse(localStorage.getItem('jobpulse_saved') || '[]');
+    <!-- Enhanced Modern Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <div class="footer-brand-title">
+              <span>JobPulse</span>
+              <span class="brand-badge">LIVE 2025</span>
+            </div>
+            <p class="footer-desc">
+              India's #1 Job Alert Portal for Sarkari Naukri, Railway RRB, SSC, Banking, Defense & IT Tech jobs with
+              direct official application live links.
+            </p>
+            <div style="margin-top: 4px;">
+              <button class="install-app-btn" onclick="triggerInstallApp()"
+                style="font-size: 0.8rem; padding: 6px 14px;">
+                <i class="fa-solid fa-mobile-screen-button"></i> Install Mobile App 📲
+              </button>
+            </div>
+          </div>
 
-    /* DOM Cache */
-    const jobsGrid = document.getElementById('jobsGrid');
-    const searchInput = document.getElementById('searchInput');
-    const locationFilter = document.getElementById('locationFilter');
-    const jobCountTag = document.getElementById('jobCount');
-    const savedCountTag = document.getElementById('savedCount');
-    const themeIcon = document.getElementById('themeIcon');
+          <!-- Quick Job Categories -->
+          <div>
+            <h4 class="footer-col-title">Job Categories</h4>
+            <ul class="footer-links">
+              <li><a href="javascript:void(0)" onclick="setCategory('central')"><i class="fa-solid fa-angle-right"></i>
+                  Central Govt Jobs</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('state')"><i class="fa-solid fa-angle-right"></i>
+                  State Govt Jobs</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('railway')"><i class="fa-solid fa-angle-right"></i>
+                  Railway RRB Vacancies</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('bank')"><i class="fa-solid fa-angle-right"></i>
+                  Bank PO & Clerk Jobs</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('defense')"><i class="fa-solid fa-angle-right"></i>
+                  Defense & Police Bharti</a></li>
+              <li><a href="javascript:void(0)" onclick="setCategory('tech')"><i class="fa-solid fa-angle-right"></i>
+                  Tech & IT Engineering</a></li>
+            </ul>
+          </div>
 
-    /* ==========================================================================
-       CORE FUNCTIONS
-       ========================================================================== */
+          <!-- Important Resources -->
+          <div>
+            <h4 class="footer-col-title">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="javascript:void(0)" onclick="openPostModal()"><i class="fa-solid fa-bell"></i> Instant Job
+                  Alerts</a></li>
+              <li><a href="javascript:void(0)" onclick="filterSavedJobs()"><i class="fa-solid fa-bookmark"></i> Saved
+                  Bookmarked Jobs</a></li>
+              <li><a href="tel:9111390994"><i class="fa-solid fa-headset"></i> Helpline Support</a></li>
+              <li><a href="https://wa.me/9111390994" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-whatsapp"></i> Join WhatsApp Group</a></li>
+              <li><a href="https://t.me" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Telegram
+                  Channel</a></li>
+            </ul>
+          </div>
 
-    // Initialize App
-    function init() {
-      updateSavedCount();
-      loadThemePreference();
-      renderJobs();
-    }
+          <!-- Social & Contact -->
+          <div>
+            <h4 class="footer-col-title">Connect With Us</h4>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 10px;">Get real-time notification
+              updates on social media:</p>
+            <div class="footer-social-bar">
+              <a href="tel:9111390994" class="social-btn call-btn" title="Call Helpline Support">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call Support</span>
+              </a>
+              <a href="https://wa.me/9111390994" target="_blank" rel="noopener noreferrer"
+                class="social-btn whatsapp-btn" title="WhatsApp Channel">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn"
+                title="Telegram Group">
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube-btn"
+                title="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="http://instagram.com/_mohan_mogiya_2001?igsh=MWFxdnl5YzM0NXVvNg%3D%3D" target="_blank"
+                rel="noopener noreferrer" class="social-btn instagram-btn" title="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn x-btn"
+                title="X (Twitter)">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
-    // Render Job Cards Grid
-    function renderJobs() {
-      let filtered = JOBS_DATA.filter(job => {
-        // Category Filter
-        if (currentCategory !== 'all' && job.category !== currentCategory) return false;
+        <!-- Footer Bottom Ribbon -->
+        <div class="footer-bottom">
+          <div>© 2026 JobPulse Portal • Mobile Responsive & Direct Application Links.</div>
+          <div class="footer-bottom-links">
+            <a href="javascript:void(0)" onclick="showToast('JobPulse Portal - Free job notifications service')">About
+              Us</a>
+            <a href="javascript:void(0)"
+              onclick="showToast('All job details are verified from official government gazettes.')">Disclaimer</a>
+            <a href="javascript:void(0)" onclick="showToast('Your data is 100% private and protected.')">Privacy
+              Policy</a>
+            <a href="tel:9111390994">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-        // Job Type Filter
-        if (currentJobType !== 'all' && job.jobType !== currentJobType) return false;
-
-        // Location Filter
-        if (selectedLocation !== 'all' && !job.location.toLowerCase().includes(selectedLocation.toLowerCase())) return false;
-
-        // Saved Jobs Filter Mode
-        if (showingSavedOnly && !savedJobIds.includes(job.id)) return false;
-
-        // Text Search Query Filter
-        if (searchQuery.trim() !== '') {
-          const q = searchQuery.toLowerCase();
-          const matchTitle = job.title.toLowerCase().includes(q);
-          const matchOrg = job.org.toLowerCase().includes(q);
-          const matchQual = job.qual.toLowerCase().includes(q);
-          const matchLoc = job.location.toLowerCase().includes(q);
-          if (!matchTitle && !matchOrg && !matchQual && !matchLoc) return false;
+    <!-- Embedded JavaScript Application Logic -->
+    <script>
+      /* ==========================================================================
+         JOBS DATASET (22+ Real Vacancies with Official Live Application Links)
+         ========================================================================== */
+      const JOBS_DATA = [
+        {
+          id: 1,
+          title: "SSC CGL 2024 / 2025 Recruitment",
+          org: "Staff Selection Commission (SSC)",
+          category: "central",
+          jobType: "Govt",
+          badge: "URGENT",
+          posts: "17,727 Posts",
+          qual: "Any Bachelor's Degree",
+          location: "All India",
+          salary: "₹25,500 – ₹81,100 /mo",
+          lastDate: "28 Feb 2025",
+          logoClass: "govt",
+          logoIcon: "fa-building-columns",
+          url: "https://ssc.gov.in/",
+          desc: "Group B & C officer posts across Ministries, Central Secretariat Service, Income Tax, Excise Inspector, Assistant Section Officer, and Auditor.",
+          eligibility: ["Age limit: 18 - 32 years (Relaxation applicable)", "Graduation in any stream from recognized university", "Selection via Tier 1 & Tier 2 Computer Based Tests"]
+        },
+        {
+          id: 2,
+          title: "IBPS PO / Management Trainee (CRP PO/MT-XIV)",
+          org: "Institute of Banking Personnel Selection",
+          category: "banking",
+          jobType: "Govt",
+          badge: "HOT",
+          posts: "4,455 Posts",
+          qual: "Graduation in any discipline",
+          location: "All India",
+          salary: "₹52,000 – ₹55,000 /mo",
+          lastDate: "15 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-piggy-bank",
+          url: "https://www.ibps.in/",
+          desc: "Probationary Officer (PO) openings in Public Sector Banks like Punjab National Bank, Canara Bank, Bank of Baroda, Indian Bank, etc.",
+          eligibility: ["Degree in any discipline from recognized University", "Computer operating knowledge required", "Selection through Prelims, Mains & Interview"]
+        },
+        {
+          id: 3,
+          title: "RRB NTPC Graduate & Undergraduate Vacancies",
+          org: "Railway Recruitment Boards (RRB)",
+          category: "railway",
+          jobType: "Govt",
+          badge: "NEW",
+          posts: "11,558 Posts",
+          qual: "12th Pass / Any Degree",
+          location: "All India",
+          salary: "₹19,900 – ₹35,400 /mo",
+          lastDate: "10 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-train",
+          url: "https://indianrailways.gov.in/",
+          desc: "Non-Technical Popular Categories including Station Master, Goods Guard, Senior Clerk, Junior Clerk, Typist, and Commercial Apprentice.",
+          eligibility: ["12th or Graduate depending on post", "Age relaxation as per Govt rules", "Selection: CBT 1, CBT 2, Skill Test & Document Verification"]
+        },
+        {
+          id: 4,
+          title: "UPSC Civil Services Examination (CSE) 2025",
+          org: "Union Public Service Commission",
+          category: "central",
+          jobType: "Govt",
+          badge: "HOT",
+          posts: "1,056 Posts",
+          qual: "Bachelor's Degree in any discipline",
+          location: "All India",
+          salary: "Level 10 (Pay Matrix ₹56,100+)",
+          lastDate: "05 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-landmark",
+          url: "https://upsc.gov.in/",
+          desc: "IAS, IPS, IFS, IRS, and Central Group A & B Services recruitment notification for prestigious administrative positions in India.",
+          eligibility: ["Age 21-32 years", "Graduate in any subject", "Selection: Preliminary, Mains Written & Personality Interview"]
+        },
+        {
+          id: 5,
+          title: "Software Engineer - Full Stack (L4)",
+          org: "Google India",
+          category: "tech",
+          jobType: "Private",
+          badge: "HOT",
+          posts: "Multiple Positions",
+          qual: "B.Tech / M.Tech in CS or related field",
+          location: "Bangalore",
+          salary: "₹18,00,000 – ₹32,00,000 /yr",
+          lastDate: "Rolling Hiring",
+          logoClass: "tech",
+          logoIcon: "fa-google",
+          url: "https://careers.google.com/",
+          desc: "Build large-scale frontend and backend cloud services, distributed infrastructure, and high-performance search AI features.",
+          eligibility: ["Strong knowledge of Data Structures & Algorithms", "Proficiency in React, Java, C++, or Python", "System Design & Cloud platform knowledge"]
+        },
+        {
+          id: 6,
+          title: "SBI Probationary Officer (PO) Officer Cadre",
+          org: "State Bank of India",
+          category: "banking",
+          jobType: "Govt",
+          badge: "NEW",
+          posts: "2,000 Posts",
+          qual: "Graduation (Any Discipline)",
+          location: "All India",
+          salary: "₹54,000 /mo + Allowances",
+          lastDate: "20 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-building-columns",
+          url: "https://sbi.co.in/web/careers",
+          desc: "Join India's largest bank as Probationary Officer with rapid career progression to managerial and executive leadership roles.",
+          eligibility: ["Graduation in any stream", "Final year students eligible conditionally", "Phase 1 Prelims, Phase 2 Mains, Phase 3 GD & Interview"]
+        },
+        {
+          id: 7,
+          title: "ISRO Scientist / Engineer 'SC' (ECE, CSE, Mech)",
+          org: "Indian Space Research Organisation",
+          category: "central",
+          jobType: "Govt",
+          badge: "NEW",
+          posts: "320 Posts",
+          qual: "B.E / B.Tech (First Class 65%)",
+          location: "All India",
+          salary: "₹56,100 + DA & HRA",
+          lastDate: "12 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-rocket",
+          url: "https://www.isro.gov.in/Careers.html",
+          desc: "Recruitment for Satellite Systems, Propulsion, Space Robotics, Navigation & Cyber Security division at ISRO centres.",
+          eligibility: ["BE/B.Tech with minimum 65% aggregate", "Valid GATE Score or ISRO Written Test Rank", "Age limit up to 28 years"]
+        },
+        {
+          id: 8,
+          title: "Frontend React & Next.js Developer",
+          org: "Microsoft Corporation",
+          category: "tech",
+          jobType: "Private",
+          badge: "NEW",
+          posts: "15 Openings",
+          qual: "B.E / B.Tech / BCA / MCA",
+          location: "Remote",
+          salary: "₹16,00,000 – ₹28,00,000 /yr",
+          lastDate: "Rolling Hiring",
+          logoClass: "tech",
+          logoIcon: "fa-microsoft",
+          url: "https://careers.microsoft.com/",
+          desc: "Develop scalable web user interfaces for Microsoft 365, Azure Cloud Portal, and AI Copilot web applications.",
+          eligibility: ["2+ years experience in React, TypeScript, and Modern CSS", "Experience with state management and Web Performance optimization", "Remote / Hybrid working flexibility"]
+        },
+        {
+          id: 9,
+          title: "UP Police Constable Recruitment 2024-25",
+          org: "UP Police Recruitment Board",
+          category: "defence",
+          jobType: "Govt",
+          badge: "URGENT",
+          posts: "60,244 Posts",
+          qual: "10+2 (Intermediate) Pass",
+          location: "Uttar Pradesh",
+          salary: "₹21,700 – ₹69,100 /mo",
+          lastDate: "01 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-shield-halved",
+          url: "https://uppbpb.gov.in/",
+          desc: "Massive recruitment drive for Constables in Civil Police, PAC, and Fireman departments across Uttar Pradesh.",
+          eligibility: ["12th pass from recognized board", "Physical Standard Test (PST) & Physical Efficiency Test (PET)", "Written exam in OMR offline mode"]
+        },
+        {
+          id: 10,
+          title: "Senior Full Stack React/Node Engineer",
+          org: "Remote OK Worldwide",
+          category: "remote",
+          jobType: "Private",
+          badge: "HOT",
+          posts: "Global Remote",
+          qual: "Self-Taught or Computer Science Degree",
+          location: "Remote",
+          salary: "$65,000 – $95,000 /yr",
+          lastDate: "Active Now",
+          logoClass: "tech",
+          logoIcon: "fa-globe",
+          url: "https://remoteok.com/",
+          desc: "Work 100% remotely for international fintech & AI startups. Build modern web apps using JavaScript/TypeScript stack.",
+          eligibility: ["Proficiency in React.js, Node.js, GraphQL, PostgreSQL", "Async communication skills in English", "Work from anywhere in the world"]
+        },
+        {
+          id: 11,
+          title: "TCS NQT National Qualifier Test (Freshers 2025)",
+          org: "Tata Consultancy Services (TCS)",
+          category: "freshers",
+          jobType: "Private",
+          badge: "NEW",
+          posts: "Mass Hiring",
+          qual: "B.E/B.Tech/M.Tech/BCA/B.Sc",
+          location: "All India",
+          salary: "₹3,36,000 – ₹7,00,000 /yr",
+          lastDate: "22 Mar 2025",
+          logoClass: "tech",
+          logoIcon: "fa-laptop-code",
+          url: "https://www.tcs.com/careers",
+          desc: "TCS Ninja, Digital & Prime recruitment for 2024 and 2025 graduating batches across pan-India office locations.",
+          eligibility: ["2024 & 2025 Batch Passouts", "Minimum 60% in 10th, 12th, and Diploma/Graduation", "Core coding test & aptitude evaluation"]
+        },
+        {
+          id: 12,
+          title: "Indian Air Force AFCAT 01/2025 Entry",
+          org: "Indian Air Force (IAF)",
+          category: "defence",
+          jobType: "Govt",
+          badge: "HOT",
+          posts: "317 Posts",
+          qual: "Graduation / B.Tech",
+          location: "All India",
+          salary: "₹56,100 – ₹1,77,500 /mo",
+          lastDate: "18 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-jet-fighter",
+          url: "https://afcat.cdac.in/AFCAT/",
+          desc: "Commissioned Officer entry in Flying Branch and Ground Duty (Technical & Non-Technical) Branches.",
+          eligibility: ["Age: 20-24 yrs for Flying Branch; 20-26 yrs for Ground Duty", "Physics & Math at 10+2 level mandatory for Flying", "AFCAT Online Exam & AFSB Interview"]
+        },
+        {
+          id: 13,
+          title: "India Post Gramin Dak Sevak (GDS Cycle 6)",
+          org: "Department of Posts",
+          category: "central",
+          jobType: "Govt",
+          badge: "NEW",
+          posts: "44,228 Posts",
+          qual: "10th Pass (Matriculation)",
+          location: "All India",
+          salary: "₹12,000 – ₹29,380 /mo",
+          lastDate: "25 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-envelope",
+          url: "https://indiapostgdsonline.gov.in/",
+          desc: "Branch Postmaster (BPM) and Assistant Branch Postmaster (ABPM) direct recruitment based on 10th marks merit list.",
+          eligibility: ["10th Standard pass with Mathematics and English", "No written exam! Selection purely on 10th marks merit", "Knowledge of local language & cycling mandatory"]
+        },
+        {
+          id: 14,
+          title: "SDE-1 (Software Development Engineer)",
+          org: "Amazon India",
+          category: "tech",
+          jobType: "Private",
+          badge: "HOT",
+          posts: "Gurgaon / Bangalore",
+          qual: "B.Tech in CSE/IT/ECE",
+          location: "Delhi/NCR",
+          salary: "₹16,00,000 – ₹26,00,000 /yr",
+          lastDate: "Open Until Filled",
+          logoClass: "tech",
+          logoIcon: "fa-amazon",
+          url: "https://www.amazon.jobs/",
+          desc: "Build highly responsive ecommerce checkout, Logistics APIs, and AWS Cloud microservices with microsecond latencies.",
+          eligibility: ["Solid CS fundamentals, OOPs, Data Structures", "Experience writing scalable clean Java/C++/Python code", "Understanding of Distributed Storage & AWS Services"]
+        },
+        {
+          id: 15,
+          title: "DRDO CEPTAM Senior Technical Assistant (STA-B)",
+          org: "Defence Research & Dev Organisation",
+          category: "defence",
+          jobType: "Govt",
+          badge: "NEW",
+          posts: "1,901 Posts",
+          qual: "Diploma / B.Sc / B.Tech",
+          location: "All India",
+          salary: "₹35,400 – ₹1,12,400 /mo",
+          lastDate: "30 Mar 2025",
+          logoClass: "govt",
+          logoIcon: "fa-user-shield",
+          url: "https://www.drdo.gov.in/careers",
+          desc: "Research and development assistant vacancies in Missile Systems, Aeronautics, Electronics, and Radar Tech labs.",
+          eligibility: ["B.Sc / Diploma in Engineering discipline", "Age limit: 18 to 28 years", "Tier-I Screening CBT & Tier-II Selection Test"]
+        },
+        {
+          id: 16,
+          title: "Infosys Specialist Programmer & System Engineer",
+          org: "Infosys Limited",
+          category: "freshers",
+          jobType: "Private",
+          badge: "NEW",
+          posts: "Pan-India Hiring",
+          qual: "BE / B.Tech / ME / M.Tech / MCA",
+          location: "Bangalore",
+          salary: "₹4,00,000 – ₹9,50,000 /yr",
+          lastDate: "14 Mar 2025",
+          logoClass: "tech",
+          logoIcon: "fa-code-branch",
+          url: "https://www.infosys.com/careers.html",
+          desc: "Specialist Programmer role focusing on Cloud native development, AI models integration, and Enterprise full-stack architecture.",
+          eligibility: ["Graduates from 2024 & 2025 passout batch", "Strong competitive programming skills", "Selection via HackWithInfy & Online Assessment"]
+        },
+        {
+          id: 17,
+          title: "RBI Grade B Officer Recruitment 2025",
+          org: "Reserve Bank of India",
+          category: "banking",
+          jobType: "Govt",
+          badge: "HOT",
+          posts: "241 Posts",
+          qual: "Graduation (Minimum 60% Marks)",
+          location: "All India",
+          salary: "₹1,08,000 /mo Gross",
+          lastDate: "27 Feb 2025",
+          logoClass: "govt",
+          logoIcon: "fa-coins",
+          url: "https://www.rbi.org.in/",
+          desc: "Officer Grade 'B' (General / DEPR / DSIM) positions at India's central banking institution with supreme perks and prestige.",
+          eligibility: ["Graduation with minimum 60% marks (50% for SC/ST)", "Age: 21 to 30 years", "Phase 1 Online CBT, Phase 2 Written Exam & Interview"]
+        },
+        {
+          id: 18,
+          title: "UI/UX Product Designer",
+          org: "LinkedIn Jobs India",
+          category: "tech",
+          jobType: "Private",
+          badge: "NEW",
+          posts: "Multiple Roles",
+          qual: "Design Degree / Portfolio",
+          location: "Remote",
+          salary: "₹12,00,000 – ₹20,00,000 /yr",
+          lastDate: "Active Hiring",
+          logoClass: "tech",
+          logoIcon: "fa-linkedin",
+          url: "https://www.linkedin.com/jobs/",
+          desc: "Design intuitive user experiences, wireframes, component libraries, and interactive prototypes for SaaS platforms.",
+          eligibility: ["Figma expertise & design system experience", "Strong portfolio demonstrating UX problem solving", "Understanding of HTML/CSS responsive constraints"]
         }
+      ];
 
-        return true;
-      });
+      /* ==========================================================================
+         APP STATE MANAGEMENT
+         ========================================================================== */
+      let currentCategory = 'all';
+      let currentJobType = 'all';
+      let searchQuery = '';
+      let selectedLocation = 'all';
+      let showingSavedOnly = false;
+      let savedJobIds = JSON.parse(localStorage.getItem('jobpulse_saved') || '[]');
 
-      // Update Job Counter Tag
-      jobCountTag.textContent = `${filtered.length} Job${filtered.length !== 1 ? 's' : ''}`;
+      /* DOM Cache */
+      const jobsGrid = document.getElementById('jobsGrid');
+      const searchInput = document.getElementById('searchInput');
+      const locationFilter = document.getElementById('locationFilter');
+      const jobCountTag = document.getElementById('jobCount');
+      const savedCountTag = document.getElementById('savedCount');
+      const themeIcon = document.getElementById('themeIcon');
 
-      if (filtered.length === 0) {
-        jobsGrid.innerHTML = `
+      /* ==========================================================================
+         CORE FUNCTIONS
+         ========================================================================== */
+
+      // Initialize App
+      function init() {
+        updateSavedCount();
+        loadThemePreference();
+        renderJobs();
+      }
+
+      // Render Job Cards Grid
+      function renderJobs() {
+        let filtered = JOBS_DATA.filter(job => {
+          // Category Filter
+          if (currentCategory !== 'all' && job.category !== currentCategory) return false;
+
+          // Job Type Filter
+          if (currentJobType !== 'all' && job.jobType !== currentJobType) return false;
+
+          // Location Filter
+          if (selectedLocation !== 'all' && !job.location.toLowerCase().includes(selectedLocation.toLowerCase())) return false;
+
+          // Saved Jobs Filter Mode
+          if (showingSavedOnly && !savedJobIds.includes(job.id)) return false;
+
+          // Text Search Query Filter
+          if (searchQuery.trim() !== '') {
+            const q = searchQuery.toLowerCase();
+            const matchTitle = job.title.toLowerCase().includes(q);
+            const matchOrg = job.org.toLowerCase().includes(q);
+            const matchQual = job.qual.toLowerCase().includes(q);
+            const matchLoc = job.location.toLowerCase().includes(q);
+            if (!matchTitle && !matchOrg && !matchQual && !matchLoc) return false;
+          }
+
+          return true;
+        });
+
+        // Update Job Counter Tag
+        jobCountTag.textContent = `${filtered.length} Job${filtered.length !== 1 ? 's' : ''}`;
+
+        if (filtered.length === 0) {
+          jobsGrid.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-folder-open"></i>
             <h3>No Vacancies Found</h3>
@@ -1792,14 +2041,14 @@
             <button onclick="resetFilters()" style="margin-top: 12px;" class="btn-details">Clear All Filters</button>
           </div>
         `;
-        return;
-      }
+          return;
+        }
 
-      jobsGrid.innerHTML = filtered.map(job => {
-        const isSaved = savedJobIds.includes(job.id);
-        const badgeClass = job.badge.toLowerCase();
+        jobsGrid.innerHTML = filtered.map(job => {
+          const isSaved = savedJobIds.includes(job.id);
+          const badgeClass = job.badge.toLowerCase();
 
-        return `
+          return `
           <div class="job-card">
             <div>
               <div class="card-top">
@@ -1840,108 +2089,108 @@
             </div>
           </div>
         `;
-      }).join('');
-    }
-
-    /* Search & Filter Event Handlers */
-    function handleSearch() {
-      searchQuery = searchInput.value;
-      selectedLocation = locationFilter.value;
-      renderJobs();
-    }
-
-    function setCategory(cat, element) {
-      currentCategory = cat;
-      showingSavedOnly = false;
-
-      // Update active state UI
-      if (element) {
-        document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
-        element.classList.add('active');
-      } else {
-        // Sync chip highlight
-        document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
-        const activeChip = Array.from(document.querySelectorAll('.cat-chip')).find(el => el.getAttribute('onclick')?.includes(`'${cat}'`));
-        if (activeChip) activeChip.classList.add('active');
+        }).join('');
       }
-      renderJobs();
-    }
 
-    function setJobTypeFilter(type, element) {
-      currentJobType = type;
-      if (element) {
+      /* Search & Filter Event Handlers */
+      function handleSearch() {
+        searchQuery = searchInput.value;
+        selectedLocation = locationFilter.value;
+        renderJobs();
+      }
+
+      function setCategory(cat, element) {
+        currentCategory = cat;
+        showingSavedOnly = false;
+
+        // Update active state UI
+        if (element) {
+          document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
+          element.classList.add('active');
+        } else {
+          // Sync chip highlight
+          document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
+          const activeChip = Array.from(document.querySelectorAll('.cat-chip')).find(el => el.getAttribute('onclick')?.includes(`'${cat}'`));
+          if (activeChip) activeChip.classList.add('active');
+        }
+        renderJobs();
+      }
+
+      function setJobTypeFilter(type, element) {
+        currentJobType = type;
+        if (element) {
+          document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+          element.classList.add('active');
+        }
+        renderJobs();
+      }
+
+      function filterSavedJobs() {
+        showingSavedOnly = !showingSavedOnly;
+        if (showingSavedOnly) {
+          showToast("Showing your Bookmarked Jobs");
+        }
+        renderJobs();
+      }
+
+      function setMobileNavActive(element) {
+        document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+      }
+
+      function resetFilters() {
+        searchQuery = '';
+        selectedLocation = 'all';
+        currentCategory = 'all';
+        currentJobType = 'all';
+        showingSavedOnly = false;
+
+        searchInput.value = '';
+        locationFilter.value = 'all';
+
+        document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
+        document.querySelector('.cat-chip')?.classList.add('active');
+
         document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-        element.classList.add('active');
+        document.querySelector('.tab-btn')?.classList.add('active');
+
+        const homeItem = document.getElementById('mnavHome');
+        if (homeItem) setMobileNavActive(homeItem);
+
+        renderJobs();
       }
-      renderJobs();
-    }
 
-    function filterSavedJobs() {
-      showingSavedOnly = !showingSavedOnly;
-      if (showingSavedOnly) {
-        showToast("Showing your Bookmarked Jobs");
+      /* Bookmark Functionality */
+      function toggleBookmark(jobId) {
+        const index = savedJobIds.indexOf(jobId);
+        if (index > -1) {
+          savedJobIds.splice(index, 1);
+          showToast("Job removed from saved list");
+        } else {
+          savedJobIds.push(jobId);
+          showToast("Job saved successfully! 🔖");
+        }
+        localStorage.setItem('jobpulse_saved', JSON.stringify(savedJobIds));
+        updateSavedCount();
+        renderJobs();
       }
-      renderJobs();
-    }
 
-    function setMobileNavActive(element) {
-      document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
-      if (element) element.classList.add('active');
-    }
-
-    function resetFilters() {
-      searchQuery = '';
-      selectedLocation = 'all';
-      currentCategory = 'all';
-      currentJobType = 'all';
-      showingSavedOnly = false;
-
-      searchInput.value = '';
-      locationFilter.value = 'all';
-
-      document.querySelectorAll('.cat-chip').forEach(el => el.classList.remove('active'));
-      document.querySelector('.cat-chip')?.classList.add('active');
-
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.querySelector('.tab-btn')?.classList.add('active');
-
-      const homeItem = document.getElementById('mnavHome');
-      if (homeItem) setMobileNavActive(homeItem);
-
-      renderJobs();
-    }
-
-    /* Bookmark Functionality */
-    function toggleBookmark(jobId) {
-      const index = savedJobIds.indexOf(jobId);
-      if (index > -1) {
-        savedJobIds.splice(index, 1);
-        showToast("Job removed from saved list");
-      } else {
-        savedJobIds.push(jobId);
-        showToast("Job saved successfully! 🔖");
+      function updateSavedCount() {
+        if (savedCountTag) savedCountTag.textContent = savedJobIds.length;
       }
-      localStorage.setItem('jobpulse_saved', JSON.stringify(savedJobIds));
-      updateSavedCount();
-      renderJobs();
-    }
 
-    function updateSavedCount() {
-      if (savedCountTag) savedCountTag.textContent = savedJobIds.length;
-    }
+      /* Modal Popup Handlers */
+      function openJobDetail(jobId) {
+        const job = JOBS_DATA.find(j => j.id === jobId);
+        if (!job) return;
 
-    /* Modal Popup Handlers */
-    function openJobDetail(jobId) {
-      const job = JOBS_DATA.find(j => j.id === jobId);
-      if (!job) return;
+        document.getElementById('modalTitle').textContent = job.title;
+        document.getElementById('modalOrg').textContent = job.org;
+        document.getElementById('modalTag').textContent = job.badge;
 
-      document.getElementById('modalTitle').textContent = job.title;
-      document.getElementById('modalOrg').textContent = job.org;
-      document.getElementById('modalTag').textContent = job.badge;
+        const isSaved = savedJobIds.includes(job.id);
 
-      const isSaved = savedJobIds.includes(job.id);
-
-      document.getElementById('modalBody').innerHTML = `
+        document.getElementById('modalBody').innerHTML = `
         <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">${job.desc}</p>
         
         <div style="background: var(--bg-main); padding: 12px; border-radius: var(--radius-md); margin-bottom: 14px;">
@@ -1964,7 +2213,7 @@
         <p style="color: var(--text-muted); font-size: 0.825rem;">Click on the direct official link below. Fill your online application form on the official website before the closing deadline (${job.lastDate}).</p>
       `;
 
-      document.getElementById('modalActions').innerHTML = `
+        document.getElementById('modalActions').innerHTML = `
         <button onclick="toggleBookmark(${job.id}); openJobDetail(${job.id});" style="background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-color);">
           <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i> ${isSaved ? 'Saved' : 'Save Job'}
         </button>
@@ -1976,76 +2225,118 @@
         </a>
       `;
 
-      document.getElementById('jobModal').classList.add('active');
-    }
-
-    function closeModal(modalId) {
-      document.getElementById(modalId).classList.remove('active');
-    }
-
-    function openPostModal() {
-      const alertNav = document.getElementById('mnavAlerts');
-      if (alertNav) setMobileNavActive(alertNav);
-      document.getElementById('postModal').classList.add('active');
-    }
-
-    function subscribeAlerts() {
-      showToast("🎉 Alerts subscribed successfully!");
-      closeModal('postModal');
-    }
-
-    /* Share Job Link */
-    function shareJob(title, url) {
-      if (navigator.share) {
-        navigator.share({ title: title, url: url }).catch(() => { });
-      } else {
-        navigator.clipboard.writeText(`${title} - Apply here: ${url}`);
-        showToast("Application link copied to clipboard!");
+        document.getElementById('jobModal').classList.add('active');
       }
-    }
 
-    /* Theme Switcher */
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('jobpulse_theme', newTheme);
-
-      if (themeIcon) themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-      showToast(`Switched to ${newTheme} mode`);
-    }
-
-    function loadThemePreference() {
-      const savedTheme = localStorage.getItem('jobpulse_theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      if (themeIcon) themeIcon.className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
-
-    /* Toast Notification Helper */
-    function showToast(message) {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${message}</span>`;
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(20px)';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    // Close Modals on Overlay Click
-    window.onclick = function (event) {
-      if (event.target.classList.contains('modal-overlay')) {
-        event.target.classList.remove('active');
+      function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove('active');
       }
-    }
 
-    // Run on startup
-    document.addEventListener('DOMContentLoaded', init);
-  </script>
+      function openPostModal() {
+        const alertNav = document.getElementById('mnavAlerts');
+        if (alertNav) setMobileNavActive(alertNav);
+        document.getElementById('postModal').classList.add('active');
+      }
+
+      function subscribeAlerts() {
+        showToast("🎉 Alerts subscribed successfully!");
+        closeModal('postModal');
+      }
+
+      /* Share Job Link */
+      function shareJob(title, url) {
+        if (navigator.share) {
+          navigator.share({ title: title, url: url }).catch(() => { });
+        } else {
+          navigator.clipboard.writeText(`${title} - Apply here: ${url}`);
+          showToast("Application link copied to clipboard!");
+        }
+      }
+
+      /* Theme Switcher */
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('jobpulse_theme', newTheme);
+
+        if (themeIcon) themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        showToast(`Switched to ${newTheme} mode`);
+      }
+
+      function loadThemePreference() {
+        const savedTheme = localStorage.getItem('jobpulse_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (themeIcon) themeIcon.className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+
+      /* Toast Notification Helper */
+      function showToast(message) {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${message}</span>`;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(20px)';
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      }
+
+      /* ==========================================================================
+         PWA & MOBILE APP INSTALLATION LOGIC
+         ========================================================================== */
+      // Register Service Worker for offline capability
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('JobPulse ServiceWorker registered successfully with scope:', reg.scope))
+            .catch(err => console.error('ServiceWorker registration failed:', err));
+        });
+      }
+
+      let deferredPrompt = null;
+
+      // Listen for native install prompt event
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        console.log('JobPulse install prompt ready!');
+      });
+
+      // Trigger App Installation
+      function triggerInstallApp() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              showToast('🎉 JobPulse app installed successfully on your home screen!');
+            }
+            deferredPrompt = null;
+          });
+        } else {
+          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+          if (isIOS) {
+            document.getElementById('iosInstallModal').classList.add('active');
+          } else {
+            // General browser instructions toast
+            showToast('📲 Tap browser menu (⋮ or Share) and select "Add to Home Screen" to install!');
+          }
+        }
+      }
+
+      // Close Modals on Overlay Click
+      window.onclick = function (event) {
+        if (event.target.classList.contains('modal-overlay')) {
+          event.target.classList.remove('active');
+        }
+      }
+
+      // Run on startup
+      document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 
 </html>
